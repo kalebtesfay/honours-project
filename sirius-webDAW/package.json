@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kalebtesfay/honours-project/issues"
   },
-  "homepage": "https://github.com/kalebtesfay/honours-project#readme"
+  "homepage": "https://github.com/kalebtesfay/honours-project#readme",
+  "dependencies": {
+    "tone": "^14.7.77"
+  }
 }
