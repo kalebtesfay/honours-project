@@ -1,0 +1,19 @@
+{
+  "name": "sirius-webdaw",
+  "version": "1.0.0",
+  "description": "Honours project done by Kaleb Tesfay under supervision by Dr. Lou Nel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalebtesfay/honours-project.git"
+  },
+  "author": "Kaleb Tesfay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalebtesfay/honours-project/issues"
+  },
+  "homepage": "https://github.com/kalebtesfay/honours-project#readme"
+}
