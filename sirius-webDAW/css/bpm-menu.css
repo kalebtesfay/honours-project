@@ -1,0 +1,21 @@
+/*
+     BPM Menu
+*/
+#bpm-border{
+    border-radius: 25px;
+    background: #131f38;
+    padding: 20px;
+    width: 200px;
+    height: 36px;
+
+    position: absolute;
+    top: 23%;
+    left: 75%;
+    margin: -15% 0 0 -25%;
+
+}
+
+.bpm-menu-text{
+    font-size: 15px;
+
+}
