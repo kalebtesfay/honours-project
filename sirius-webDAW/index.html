@@ -11,27 +11,46 @@
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" type="text/css" href="./css/index.css">
     </head>
-
+     <!-- Page Background -->
     <body style="background-color: rgba(228, 233, 237, 1);"></body>
 
     <body>
+        <!-- File Menu -->
         <div class="dropdown">
             <button class="dropbtn">File</button>
             <div class="dropdown-content">
+                <a href="=">New</a>
                 <a href="=">Open</a>
                 <a href="=">Save</a>
                 <a href="=">Save As</a>
             </div>
         </div>
-
-       <div class="play-pause">
+        <!-- Track Menu -->
+        <div class="dropdown2">
+            <button class="dropbtn2">Track</button>
+            <div class="dropdown-content2">
+                <a href="=">Add Track</a>
+                <a href="=">Remove Track</a>
+            </div>
+        </div>
+         <!-- Play/Pause -->
+        <div class="play-pause">
            <input type="checkbox" value="None" id="play-pause" name="check" />
            <label for="play-pause" tabindex=1></label>
        </div>
        <button class='button pause'></button>
-
-      <div id="bpm-border">
-          <div class="bpm-menu-text" style="color: cornflowerblue";>Tempo</div>"
+        <!-- BPM Menu -->
+        <div id="bpm-border">
+            <div class="bpm-menu-text" style="color: cornflowerblue";>TEMPO</div>"
+            <label for="bpm-adjust"></label>
+            <input type="range" id="bpm-adjust" name="bpm-adjust" min="1" max="200" value="65" step="1">
+            <span id="bpm-show"></span>"
+        </div>
+        <!-- Volumn Meter-->
+        <div class="volume">
+            <label for="vol">Volume</label>
+            <input type="range" id="vol" name="vol" min="0" max="1" step="0.1">
+        </div>
 
     </body>
     
