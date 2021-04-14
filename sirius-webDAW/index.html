@@ -7,12 +7,13 @@
 
         <link rel="stylesheet" href="./css/drum-machine.css">
         <link rel="stylesheet" href="./css/bpm-menu.css">
+        <link rel="stylesheet" href="./css/track.css">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" type="text/css" href="./css/index.css">
     </head>
      <!-- Page Background -->
-    <body style="background-color: rgba(228, 233, 237, 1);"></body>
+    <body style="background-color: rgb(72, 72, 72)"></body>
 
     <body>
         <!-- File Menu -->
@@ -33,6 +34,11 @@
                 <a href="=">Remove Track</a>
             </div>
         </div>
+        <div class="play_controls">
+            <button id="play_button" class="button">Play</button>
+            <button id="stop_button" class="button">Stop</button>
+         </div>
+
          <!-- Play/Pause -->
         <div class="play-pause">
            <input type="checkbox" value="None" id="play-pause" name="check" />
@@ -43,8 +49,10 @@
         <div id="bpm-border">
             <div class="bpm-menu-text" style="color: cornflowerblue";>TEMPO</div>"
             <label for="bpm-adjust"></label>
-            <input type="range" id="bpm-adjust" name="bpm-adjust" min="1" max="200" value="65" step="1">
+            <input type="range" id="bpm-adjust" name="bpm-adjust" min="10" max="180" value="65" step="1">
             <span id="bpm-show"></span>"
+            <!-- Project Time-->
+            <p id="time" style="color: rgb(50, 87, 156)";>TIME</p>
         </div>
         <!-- Volumn Meter-->
         <div class="volume">
@@ -52,6 +60,332 @@
             <input type="range" id="vol" name="vol" min="0" max="1" step="0.1">
         </div>
 
+        <div id="r3">
+            <div id="r3c1"></div>
+
+            <!-- Channel-Rack-Patterns/Song-Arrangement/Piano-Roll -->
+            <div id="r3c2">
+
+                <!-- Channel-Rack-Patterns/Song-Arrangement -->
+                <div id="r3c2-r1">
+                    
+                    <!-- Channel-Rack (Beat-Pattern) -->
+                    <div id="r3c2-r1c1">
+                        <div class="channel-rack-container">
+                            <div id="channel-rack">
+                                <div id="channel-rack-center">
+
+                                    <div class="channel-rack-row">
+                                        <div class="channel-rack-col-left">
+                                            <span class="number">0</span>
+                                            <input id="load_0" type="file" accept="audio/*" style="display: none;" />
+                                            <input class="name" id="instrument-name-0" type="button" onclick="document.getElementById('load_0').click();">
+                                            <span class="on-off"></span>  
+                                        </div>
+                                        <div class="beats-0">
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>                        
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="channel-rack-row">
+                                        <div class="channel-rack-col-left">
+                                            <span class="number">1</span>
+                                            <input id="load_1" type="file" accept="audio/*" style="display: none;" />
+                                            <input class="name" id="instrument-name-1" type="button" onclick="document.getElementById('load_1').click();">
+                                            <span class="on-off"></span>  
+                                        </div>
+                                        <div class="beats-1">
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>                        
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="channel-rack-row">
+                                        <div class="channel-rack-col-left">
+                                            <span class="number">2</span>
+                                            <input id="load_2" type="file" accept="audio/*" style="display: none;" />
+                                            <input class="name" id="instrument-name-2" type="button" onclick="document.getElementById('load_2').click();">
+                                            <span class="on-off"></span>  
+                                        </div>
+                                        <div class="beats-2">
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>
+                                            <span class="beat beat-l"></span>                        
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                            <span class="beat beat-r"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="channel-rack-row">
+                                        <div class="channel-rack-col-left">
+                                            <span class="number">3</span>
+                                            <input id="load_3" type="file" accept="audio/*" style="display: none;" />
+                                            <input class="name" id="instrument-name-3" type="button" onclick="document.getElementById('load_3').click();">
+                                            <span class="on-off"></span>  
+                                        </div>
+                                        <div class="beats-3">
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-l metronome"></span>
+                                            <span class="beat beat-l metronome"></span>                        
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                            <span class="beat beat-r metronome"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <div id="metronome-container">
+                                        <div id="metronome">
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                            <div class="metronome-elem"></div>
+                                        </div>
+                                    </div> -->
+                                    <style>
+                                        #metronome-container {
+                                            height: 15px;
+                                            width: 100%;
+                                            background: rgb(139, 103, 103);
+                                            opacity: 0.5;
+
+                                            display: flex;
+                                            justify-content: flex-end;
+                                        }
+                                        #metronome{
+                                            height: 100%;
+                                            width: 270px;
+                                            background: yellow;
+
+                                            margin-right: 7px;
+
+                                            display: flex;
+                                            justify-content: space-around
+                                        }
+                                        .metronome-elem {
+                                            background: rgb(86, 108, 123);
+                                            width: 15px;
+                                            height: 100%;
+                                        }
+                                    </style>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Song-Arrangement -->
+                    <div id="r3c2-r1c2"></div>
+
+                </div>
+
+                <!-- Piano Roll -->
+                <div id="r3c2-r2" style="overflow: hidden;">
+
+                    <style>
+                        :root {
+                            /* --piano-roll-height: 660px; */
+                            --piano-roll-height: 720px;
+                            --R1-height: 25px;
+                            --R2-height: 45px;
+                            --R3-height: calc(var(--piano-roll-height) - (var(--R1-height) + var(--R2-height)) );
+
+                            --piano-width: 80px;
+                            --piano-roll-row-height: 16px;
+
+                            --piano-roll-elem-width-32nd: 41.75px;
+                        }
+                        #piano-roll {
+                            width: 1675px;
+                            height: var(--piano-roll-height);
+                            /* background-image: url('piano-roll.png'); */
+                        }
+
+                        #R1 {
+                            background: red;
+                            height: var(--R1-height);
+                            opacity: 0.5;
+                        }
+                        #R2 {
+                            background: green;
+                            /* height: var(--R2-height); */
+                            height: var(--piano-roll-row-height);
+                            opacity: 0.5;
+
+                            display: grid;
+                            grid-template-columns: var(--piano-width) 1fr;
+                        }
+                        #R3 {
+                            height: var(--R3-height);
+                            /* background: blue; */
+                            opacity: 0.5;
+
+                            display: grid;
+                            grid-template-columns: var(--piano-width) 1fr;
+                        }
+                        #R3c1 {
+                            width: 100%;
+                            /* background: orange; */
+                            background-image: url('img/keyboard.png');
+                            margin-left: 6px;
+                        }
+                        #R3c2 {
+                            width: 100%;
+                            /* background: purple; */
+                        }
+                        .piano-roll-row, .piano-roll-metronome-row {
+                            height: var(--piano-roll-row-height);
+                            border: 1px dashed black;
+                            display: flex;
+                        }
+                        .piano-roll-elem {
+                            height: 100%;
+                            width: var(--piano-roll-elem-width-32nd);
+                            background: yellow;
+                            border-right: 1px dotted green;
+                        }
+                        .piano-roll-metronome-elem-32nd {
+                            height: 100%;
+                            width: var(--piano-roll-elem-width-32nd);
+                            background: yellow;
+                            /* border-right: 1px dotted green; */
+                        }
+                        .piano-roll-metronome-elem-16th {
+                            height: 100%;
+                            width: calc(2 * var(--piano-roll-elem-width-32nd) + 0.95px);
+                            background: yellow;
+                            border-right: 1px dotted green;
+                        }
+                        #row-1 {
+                            background: turquoise;
+                        }
+                        #row-2 {
+                            background: red;
+                        }
+                        #row-3 {
+                            background: green;
+                        }
+
+                        #R2c1 {
+                            /* height: 100%; */
+                            width: var(--piano-width);
+                            background: yellow;
+                        }
+                        #R2c2 {
+                            /* height: 100%; */
+                            width: 100%;
+                            background: blue;
+                        }
+
+                    </style>
+                    <div id="piano-roll">
+                        <div id="R1"></div>
+                        <div id="R2">
+
+                            <div id="R2c1"></div>
+                            <div id="R2c2">
+
+                                <div class="piano-roll-metronome-row">
+
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                    
+                                    <div class="piano-roll-metronome-elem-16th"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <div id="script" class="dev">
+            <script src="../node_modules/tone/build/Tone.js"></script>
+            <script src="./js/app.js"></script>
+            <script src="./js/file_menu.js"></script>
+        </div>
+    
     </body>
+
     
 </html>

@@ -1,0 +1,111 @@
+
+body {
+    margin: 0;
+    padding: 3px;
+}
+
+.channel-rack-container {
+    /* background-image: url('channel-rack.png'); */
+    height: 700px;
+    width: 499px;
+}
+
+#channel-rack {
+    height: 550px;
+    width: 1333px;
+
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    margin: -15% 0 0 -25%;
+
+    border: solid 1px #2A3338;
+    background: #202426;
+}
+
+#channel-rack-center {
+
+    height: 484px;
+    width: 1320px;
+    
+    border: solid 1.5px #323B40;
+ 
+    margin-top: 29px;
+    margin-left: 4px;
+
+    background: #2a2a2a;
+    border-radius: 2px;
+
+    padding-top: 16px;
+    padding-left: 0px;
+}
+
+.channel-rack-row {
+    display: grid;
+    grid-template-columns: 1000px 1fr;
+    height: 50px;
+}
+
+.channel-rack-col-left {
+    display: flex;
+    align-items: center;
+}
+/* .channel-rack-col-right { */
+/* NOTE: Maximum of 8-Instruments in each channel-rack */
+.beats-0, .beats-1, .beats-2, .beats-3, .beats-4, .beats-5, .beats-6, .beats-7 {
+    display: flex;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.beat {
+    height: 20px;
+    width: 11px;
+    border: #394045 solid 1px;
+    border-radius: 2px;
+}
+
+/* Skip the margin on the first one: */
+.beat:nth-child(n+2) {
+    margin-left: 4px;
+}
+
+.beat-l {
+    background: #545A5E;
+}
+
+.beat-r {
+    background: #666655;
+}
+
+
+.number {
+    height: 24px;
+    width: 34px;
+    background: #505b4d;
+    border-radius: 2px;
+    margin-left: 4px;
+    border: solid #3F484D 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    height: 24px;
+    width: 500px;
+    background: #4D565B;
+    border-radius: 2px;
+    margin-left: 8px;
+    border: solid #3F484D 1px;
+}
+
+.on-off {
+    height: 24px;
+    width: 100px;
+    background: #4D565B;
+    border-radius: 2px;
+    margin-left: 9px;
+    border: solid #434C51 1px;
+}

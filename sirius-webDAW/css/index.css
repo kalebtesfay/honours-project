@@ -117,7 +117,7 @@ background.opacity{
 }
 
 .play-pause input[type=checkbox]:focus + label{
-    box-shadow: 0 0 5px rgba(228, 233, 237, 1);
+    box-shadow: 0 0 5px rgb(72, 72, 72);
 }
 /*
     Pause Button
@@ -159,3 +159,6 @@ background.opacity{
 .slider:hover{
     opacity: 1;
 }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
