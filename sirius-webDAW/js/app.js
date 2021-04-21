@@ -1,9 +1,9 @@
-// Globals
 let loop;
 let timer = 0;
 const membrane_synth = new Tone.MembraneSynth().toDestination();
 const synth = new Tone.Synth().toDestination();
-// ========================================================
+var mySong = new Audio();
+mySong.src = '/samples/loops/kv_65_Emin.mp3';
 
 
 // This currently only works with samples and not instruments with keys
@@ -17,18 +17,6 @@ class Instrument {
 
     constructor(name, instrument_num) {
         this.name = name;
-
-        // const Player_Default = {
-        //     onload:       Tone.noOp,
-        //     playbackRate: 1,
-        //     loop:         false,
-        //     autostart:    false,
-        //     loopStart:    0,
-        //     loopEnd:      0,
-        //     reverse:      false,
-        //     fadeIn:       0,
-        //     fadeOut:      0
-        // }
         this.player = new Tone.Player('./' + name).toDestination();
 
         const instrument_num_str = instrument_num.toString();
@@ -61,13 +49,13 @@ class Instrument {
                 if ((0<=j && j<4) || (8<=j && j<12)) // gray elements
                     this.beat_elems[j].style.background = '#B2C2CC';
                 else // red elements
-                    this.beat_elems[j].style.background = '#DEB1B3';
+                    this.beat_elems[j].style.background = '#dedcb1';
             }
             else {
                 if ((0<=j && j<4) || (8<=j && j<12)) // gray elements
                     this.beat_elems[j].style.background = '#555A5E';
                 else // red elements
-                    this.beat_elems[j].style.background = '#655456';
+                    this.beat_elems[j].style.background = '#666655';
             }
 
 
@@ -141,6 +129,10 @@ class Instrument {
         this.pattern[10] = true;
         this.pattern[13] = true;
     }
+    bass_808_pattern(){
+        this.pattern[0] = true;
+    }
+
 }
 
 // ========================================================
@@ -228,7 +220,7 @@ class Channel_Rack_TO_REMOVE {
 // let Instruments = [new Instrument('hh_sample.mp3', 0), new Instrument('clap_sample.mp3', 1), new Instrument('bass_sample.mp3', 2)];
 
 class Channel_Rack {
-    instruments = [new Instrument('../samples/drums/kv_hh_closed.wav', 0), new Instrument('../samples/drums/kv_clap.wav', 1), new Instrument('../samples/drums/kv_kick.wav', 2)];
+    instruments = [new Instrument('../samples/drums/kv_hh_closed.wav', 0), new Instrument('../samples/drums/kv_clap.wav', 1), new Instrument('../samples/drums/kv_kick.wav', 2), new Instrument('../samples/bass/kv_808_Emin.mp3', 3)];
 
 }
 const channel_rack = new Channel_Rack();
@@ -238,12 +230,24 @@ const channel_rack = new Channel_Rack();
 // let bassSynth = new Tone.MembraneSynth().toDestination();
 // let synth = new Tone.Synth().toDestination()
 
+
 //attach a click listener to a play button
-document.querySelector('#play_button').addEventListener('click', async () => {
+document.querySelector('#playButton').addEventListener('click', async () => {
     // -The await expression causes async function execution to pause until
     //  a Promise is settled (that is, fulfilled or rejected), and to resume
     //  execution of the async function after fulfillment.
     await Tone.start();
+    if(typeof mySong.loop == 'boolean'){
+        mySong.loop = true;
+    }else
+    {
+        mySong.addEventListener('ended', function(){
+            this.currentTime = 0;
+            this.play();
+        }, false);
+    }
+    mySong.play();
+
     console.log('audio is ready');
 
     // loopBeat = new Tone.Loop(callback, '4n');
@@ -264,25 +268,12 @@ document.querySelector('#play_button').addEventListener('click', async () => {
     Tone.Transport.start();
 })
 
-const stop_button = document.getElementById('stop_button');
+const stop_button = document.getElementById('pauseButton');
 stop_button.addEventListener('click', () => {
     loop.stop();
+    mySong.pause();
 });
 
-const vol_slider = document.getElementById('vol');
-
-let volume;
-vol_slider.addEventListener('change', () => {
-    volume = Number(vol_slider.value);
-    console.log('volume = ' + volume + ', type: ' + typeof volume);
-});
-
-// TODO:
-//  -Create a default instrument for synth
-//  -Create a default instrument for bass
-
-
-// ========================================================
 
 function callback(time) {
 
@@ -353,6 +344,10 @@ function callback(time) {
         channel_rack.instruments[2].player.start(time);
         channel_rack.instruments[2].player.stop(time + 0.5);
     }
+    if (channel_rack.instruments[3].pattern[idx_mod]) {
+        channel_rack.instruments[3].player.start(time);
+        channel_rack.instruments[3].player.stop(time + 0.5);
+    }
 
     // TODO: Change to grab notes at time (grab 1D-slice at time instance)
     // TODO: Change to polysynth to be able to play more than one note at once.
@@ -381,14 +376,8 @@ function callback(time) {
 // TODO: Port into Channel Rack class
 
 // ========================================================
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 let channel_rack_TO_REMOVE = new Channel_Rack_TO_REMOVE();
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 const increase_bpm = document.querySelector('#increase-bpm');
 
 const bpm_slider = document.querySelector('#bpm-adjust');

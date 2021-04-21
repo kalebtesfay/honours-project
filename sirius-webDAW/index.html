@@ -34,17 +34,20 @@
                 <a href="=">Remove Track</a>
             </div>
         </div>
-        <div class="play_controls">
+        <!-- <div class="play_controls">
             <button id="play_button" class="button">Play</button>
             <button id="stop_button" class="button">Stop</button>
-         </div>
+         </div> -->
 
          <!-- Play/Pause -->
-        <div class="play-pause">
+        <!-- <div class="play-pause">
            <input type="checkbox" value="None" id="play-pause" name="check" />
            <label for="play-pause" tabindex=1></label>
-       </div>
-       <button class='button pause'></button>
+       </div> -->
+        <!-- Play Button-->
+       <button id ="playButton" class='button play'></button>
+       <!-- Stop Button-->
+       <button id ="pauseButton" class='button pause'></button>
         <!-- BPM Menu -->
         <div id="bpm-border">
             <div class="bpm-menu-text" style="color: cornflowerblue";>TEMPO</div>"
@@ -54,11 +57,11 @@
             <!-- Project Time-->
             <p id="time" style="color: rgb(50, 87, 156)";>TIME</p>
         </div>
-        <!-- Volumn Meter-->
+        <!-- Volumn Meter
         <div class="volume">
             <label for="vol">Volume</label>
             <input type="range" id="vol" name="vol" min="0" max="1" step="0.1">
-        </div>
+        </div> -->
 
         <div id="r3">
             <div id="r3c1"></div>
@@ -183,7 +186,7 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- <div id="metronome-container">
+                                    <div id="metronome-container">
                                         <div id="metronome">
                                             <div class="metronome-elem"></div>
                                             <div class="metronome-elem"></div>
@@ -203,7 +206,7 @@
                                             <div class="metronome-elem"></div>
                                             <div class="metronome-elem"></div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <style>
                                         #metronome-container {
                                             height: 15px;
