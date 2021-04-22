@@ -49,7 +49,7 @@ background.opacity{
 /*    
     Track Menu 
 */
-.dropbtn2 {
+/* .dropbtn2 {
     background-color: rgba(46, 49, 49, 1);
     color: white;
     padding: 16px;
@@ -82,7 +82,7 @@ background.opacity{
 
 .dropdown2:hover .dropdown-content2 {display: block;}
 
-.dropdown2:hover .dropbtn2 {background-color: rgba(46, 49, 49, 1);}
+.dropdown2:hover .dropbtn2 {background-color: rgba(46, 49, 49, 1);} */
 
 /* 
      Play & Pause Button
@@ -122,6 +122,27 @@ background.opacity{
     Play Button
 */
 .button.play{
+    background-color: rgb(72, 72, 72);
+    display: block;
+    box-sizing: border-box;
+    width: 0;
+    height: 74px;
+    position: absolute;
+    top: 23%;
+    left: 55%;
+    margin: -15% 0 0 -25%;
+
+    border-color: transparent transparent transparent #202020;
+    transition: 100ms all ease;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 37px 0 37px 60px;
+}
+/*
+    Pause Button
+*/
+.button.pause{
+    background-color: rgb(72, 72, 72);
     display: block;
     box-sizing: border-box;
     width: 0;
@@ -134,16 +155,15 @@ background.opacity{
     border-color: transparent transparent transparent #202020;
     transition: 100ms all ease;
     cursor: pointer;
-    border-style: solid;
-    border-width: 37px 0 37px 60px;
-
-    
-    
+    border-style: double;
+    border-width: 0px 0 0px 60px;
+    border-color: #202020
 }
 /*
-    Pause Button
+    Stop Button
 */
-.button.pause{
+.button.stop{
+    background-color: #202020;
     width: 0px;
     height: 74px;
     position: absolute;
@@ -154,6 +174,8 @@ background.opacity{
     border-style: solid;
     border-width: 37px;
     border-color: #202020;
+
+
 }
 
 /*
@@ -180,6 +202,3 @@ background.opacity{
 .slider:hover{
     opacity: 1;
 }
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}

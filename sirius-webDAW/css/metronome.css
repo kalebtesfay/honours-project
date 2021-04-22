@@ -1,0 +1,46 @@
+#metronomeBorder {
+    background: rgb(166, 84, 84);
+    height: 18px;
+    opacity: 0.5;
+
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
+.metronome {
+    height: 100%;
+    width: calc(2 * 41.75px + 0.95px);
+    background: rgb(217, 217, 103);
+    border-right: 1px dotted rgb(166, 84, 84);;
+}
+
+.metronomeRow {
+    height: 16px;
+    border: 1px dashed black;
+    display: flex;
+}
+
+#mini-metronomeSection {
+    height: 20px;
+    width: 100%;
+    background: rgb(139, 103, 103);
+    opacity: 0.5;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+#miniMetronome{
+    height: 100%;
+    width: 270px;
+    background: rgb(255, 255, 77);
+    margin-right: 7px;
+    display: flex;
+    justify-content: space-around
+}
+
+.metronomeBG {
+    background: rgb(0, 0, 0);
+    height: 100%;
+    width: 15px;
+} 

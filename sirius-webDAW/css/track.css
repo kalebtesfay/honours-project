@@ -1,0 +1,48 @@
+/*
+    Tracks
+*/
+.track-container {
+    height: 700px;
+    width: 499px;
+}
+
+#track{
+    height: 550px;
+    width: 1333px;
+
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    margin: -15% 0 0 -25%;
+
+    border: solid 1px #2A3338;
+    background: #202426;
+}
+
+#track-center {
+
+    height: 484px;
+    width: 1320px;
+     
+    border: solid 1.5px #323B40;
+ 
+    margin-top: 29px;
+    margin-left: 4px;
+
+    background: #2a2a2a;
+    border-radius: 2px;
+
+    padding-top: 16px;
+    padding-left: 0px;
+}
+
+.track-row {
+    display: grid;
+    grid-template-columns: 1000px 1fr;
+    height: 50px;
+}
+
+.track-column {
+    display: flex;
+    align-items: center;
+}
