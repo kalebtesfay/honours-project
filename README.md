@@ -1,10 +1,13 @@
 ## Honours Project (COMP4905) - Winter 2021 
 
-### Author & Student Number
+### Author 
 Kaleb Tesfay: 101048170
 
+### Supervisor
+Dr. Lou Nel
+
 ## Sirius Web Digital Audio Workspace
-Sirius web DAW is a beginners musical tool that is used to produce music.
+Sirius web DAW is a musical production tool for beginners.
 
 ## Folders:
 There are 4 main folders in the project.
@@ -17,14 +20,14 @@ There are 4 main folders in the project.
 4) node_modules : contains the packages used for the project.
 
 
-## Packages
-The packages used in the project are stated in the `package.json` file.
+## Packages:
+The packages used for the project are stated in the `package.json` file.
 
 ## demo
 A recorded video of how the project works.
 https://youtu.be/XZhFphaIF9E
 
-### Instructions :
+### Instructions:
     `cd sirius_webDAW`
     `npm install` or `sudo npm install`
     `npm run serve`
