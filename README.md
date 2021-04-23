@@ -1,10 +1,10 @@
 ## Honours Project (COMP4905) - Winter 2021 
 
-### Supervisor:
-Dr. Lou Nel
-
 ### Author: 
 Kaleb Tesfay: 101048170
+
+### Supervisor:
+Dr. Lou Nel
 
 ## Sirius Web Digital Audio Workspace
 Sirius web DAW is a musical production tool for beginners.
