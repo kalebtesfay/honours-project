@@ -28,7 +28,7 @@ A recorded video of how the project works.
 https://youtu.be/XZhFphaIF9E
 
 ### Instructions:
-    `cd sirius_webDAW`
+    `cd sirius-webDAW`
     `npm install` or `sudo npm install`
     `npm run serve`
     open up google chrome to http://localhost:3000/
