@@ -1,9 +1,9 @@
 ## Honours Project (COMP4905) - Winter 2021 
 
-### Author 
+### Author: 
 Kaleb Tesfay: 101048170
 
-### Supervisor
+### Supervisor:
 Dr. Lou Nel
 
 ## Sirius Web Digital Audio Workspace
@@ -23,7 +23,7 @@ There are 4 main folders in the project.
 ## Packages:
 The packages used for the project are stated in the `package.json` file.
 
-## demo
+## demo:
 A recorded video of how the project works.
 https://youtu.be/XZhFphaIF9E
 
