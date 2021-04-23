@@ -1,31 +1,34 @@
+/*
+    App.js
+*/
 let loop;
-let timer = 0;
-const membrane_synth = new Tone.MembraneSynth().toDestination();
-const synth = new Tone.Synth().toDestination();
+let count = 0;
+
+// Melody
 var mySong = new Audio();
 mySong.src = '/samples/loops/kv_65_Emin.mp3';
 
 
-// This currently only works with samples and not instruments with keys
+
 class Instrument {
 
     // Fields
-    name = 'Default';
+    name = 'New Project';
     user = null;
     pattern = new Array(16);
     
-    instrument_name_elem;
 
-    constructor(name, instrument_num) {
+
+    constructor(name, num) {
         this.name = name;
         this.user = new Tone.Player('./' + name).toDestination();
         const drums = ["Hi-Hat", "Clap", "Kick", "808"];
         var drumsLength = drums.length;
 
-        this.beat_elems = document.querySelectorAll('.track_' + instrument_num + ' .pad');
+        this.beat_elems = document.querySelectorAll('.track_' + num + ' .pad');
 
         // Initialize beat pattern on default instruments
-        switch (instrument_num) {
+        switch (num) {
             case 0: this.closed_hiHats(); break;
             case 1: this.claps(); break;
             case 2: this.kicks(); break;
@@ -33,8 +36,7 @@ class Instrument {
             default: this.clear();
         }
 
-        // Definitely not a pure function!
-        const change_beat_color = (i) => {
+        const switchColour = (i) => {
             if (this.pattern[i])
                 this.beat_elems[i].style.background = 'black';
             else
@@ -43,15 +45,15 @@ class Instrument {
             const j = i;
             if(this.pattern[j])
             {
-                if ((0<=j && j<4) || (8<=j && j<12)) // gray elements
+                if ((0<=j && j<4) || (8<=j && j<12))
                     this.beat_elems[j].style.background = '#B2C2CC';
-                else // red elements
+                else 
                     this.beat_elems[j].style.background = '#dedcb1';
             }
             else {
-                if ((0<=j && j<4) || (8<=j && j<12)) // gray elements
+                if ((0<=j && j<4) || (8<=j && j<12))
                     this.beat_elems[j].style.background = '#555A5E';
-                else // red elements
+                else 
                     this.beat_elems[j].style.background = '#666655';
             }
 
@@ -59,34 +61,24 @@ class Instrument {
         };
 
         // Event-listener for drawing beat-pattern
-        this.beat_elems.forEach((val, i) => { // NEW UI
+        this.beat_elems.forEach((k, i) => { 
 
             // Set initial beat-pattern graphics
-            change_beat_color(i);
+            switchColour(i);
 
             // Change color of beat graphic upon click
             this.beat_elems[i].addEventListener('click', () => { // NEW UI
                 this.pattern[i] = !(this.pattern[i]);
-                change_beat_color(i);
+                switchColour(i);
             });
         });
 
 
     }
 
-    // Methods
     change = name => this.user = new Tone.Player('./' + name).toDestination();
 
 
-    clear() {
-        for (let pattern of this.pattern)
-            pattern = false;
-    }
-
-    print() {
-        for (let pattern of this.pattern)
-            console.log(pattern);
-    }
     closed_hiHats() {
         for (let i = 0; i < this.pattern.length; ++i)
             this.pattern[i] = true;
@@ -102,6 +94,7 @@ class Instrument {
         this.pattern[9] = true;
         this.pattern[15] = true;
     }
+
     bass_808(){
         this.pattern[0] = true;
         this.pattern[3] = true;
@@ -111,14 +104,20 @@ class Instrument {
 
     }
 
+    clear() {
+        for (let pattern of this.pattern)
+            pattern = false;
+    }
+
+    print() {
+        for (let pattern of this.pattern)
+            console.log(pattern);
+    }
+
 }
 
-// ========================================================
-
 class Tracks {
-
     constructor() {
-
         function channel_rack_row_HTML() {
             return `
             <div class="track-row">
@@ -239,7 +238,9 @@ const track = new Track();
 // let synth = new Tone.Synth().toDestination()
 
 
-//attach a click listener to a play button
+/*
+    Play Button functionality
+*/
 document.querySelector('#playButton').addEventListener('click', async () => {
     // -The await expression causes async function execution to pause until
     //  a Promise is settled (that is, fulfilled or rejected), and to resume
@@ -269,6 +270,9 @@ document.querySelector('#playButton').addEventListener('click', async () => {
     mySong.play();
 })
 
+/*
+    Pause Button functionality
+*/
 const stop_button = document.getElementById('pauseButton');
 stop_button.addEventListener('click', () => {
     loop.stop();
@@ -278,34 +282,27 @@ stop_button.addEventListener('click', () => {
 
 function callback(time) {
 
-    const BarsBeatsSixteenths = Tone.Transport.position;
-    const Bars_Beats_Sixteenths = BarsBeatsSixteenths.split(':');
-    // .position ↝ BarsBeatsSixteenths #
+    const sixteenths = Tone.Transport.position;
+    const beat_Sixteenths = sixteenths.split(':');
+    // .position ↝ sixteenths #
     // The Transport’s position in Bars:Beats:Sixteenths. Setting the value will jump to that position right away.
-    //      BarsBeatsSixteenths
+    //      sixteenths
     //      A colon-separated representation of time in the form of Bars:Beats:Sixteenths.
 
-    const bar = Number(Bars_Beats_Sixteenths[0]);
-    // console.log(`bar: ${bar}`);
-
-    const beat = Number(Bars_Beats_Sixteenths[1]);
-    // console.log(`beat: ${beat}`);
-
-    const sixteenth = Math.round(Number(Bars_Beats_Sixteenths[2]));
-    // console.log(`sixteenth: ${sixteenth}`);eenth: ${sixteenth}`);
-
-    // const idx = (bar * 4) + (beat);
+    const bar = Number(beat_Sixteenths[0]);
+    const beat = Number(beat_Sixteenths[1]);
+    const sixteenth = Math.round(Number(beat_Sixteenths[2]));
     const idx = (beat * 4) + sixteenth;
 
     document.querySelector('#time').innerHTML = 'TIME: ' + (time).toFixed(2);
 
 
-    // Channel-Rack Metronome:
+    // Track mini Metronome:
     const metronomes = document.querySelectorAll('.metronomeBG');
     metronomes[idx].style.background = 'yellow';
     if (idx > 0)
         metronomes[idx-1].style.background = 'black';
-    else if (idx === 0 && timer > 0)
+    else if (idx === 0 && count > 0)
         metronomes[15].style.background = 'black';
 
 
@@ -314,19 +311,12 @@ function callback(time) {
     metronomes_pr[idx].style.background = 'yellow';
     if (idx > 0)
         metronomes_pr[idx-1].style.background = 'black';
-    else if (idx === 0 && timer > 0)
+    else if (idx === 0 && count > 0)
         metronomes_pr[15].style.background = 'black';
 
-
-
-
-
-
-    timer = (timer + 1);
+    count = (count + 1);
 
     const idx_mod = idx % 16;
-    // console.log(`channel_rack.instruments[0].pattern[${idx_mod}] = ${channel_rack.instruments[0].pattern[idx_mod]}`);
-
 
     if (track.instruments[0].pattern[idx_mod]) {
         track.instruments[0].user.start(time);
@@ -346,11 +336,6 @@ function callback(time) {
     }
 }
 
-// ========================================================
-
-// TODO: Port into Channel Rack class
-
-// ========================================================
 let musical = new Tracks();
 
 const increase_bpm = document.querySelector('#increase-bpm');
